@@ -231,18 +231,7 @@ text-align: center;
         font-family: 'VT323', monospace;
         text-align: center;
     }
-    .game-square > div > div:last-child {
-        background-color: orange;
-        margin: 1.5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: black;
-        border-radius: 10px;
-        font-size: 55px;
-        font-family: 'VT323', monospace;
-        text-align: center;
-    }
+   
     #game {
         width: 380px;
         height: 304px;
@@ -325,18 +314,7 @@ text-align: center;
         align-items: center;
         border-bottom: 1px solid black;
     }
-    .game-square > div > div:last-child {
-        background-color: orange;
-        margin: 1.5px;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        color: black;
-        border-radius: 10px;
-        font-size: 50px;
-        font-family: 'VT323', monospace;
-        text-align: center;
-    }
+
     #game {
         width: 350px;
         height: 284px;
