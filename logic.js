@@ -35,7 +35,7 @@ if(scoreRecord != null) {
   }
 }
 else {
-  scoreList.style.display = 'none';
+  scoreList.style.display = 'inherit';
 }
 var uniValue = 1;
 var yourScore = 0;
