@@ -148,7 +148,9 @@ function timerStart() {
   }  
 }
 //DISPLAY THE BEST TIME
-document.querySelector('.best-time p').innerHTML = score[0]+' s';
+if(scoreRecord != null) {
+  document.querySelector('.best-time p').innerHTML = score[0]+' s';
+}
 }
 //DIV ELEMENT INSIDE ID:GAME FORMS WHEN THE DOCUMENT LOADS 
 function addElement() {
