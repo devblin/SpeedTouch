@@ -17,7 +17,26 @@ y.style.display = 'none';
 z.style.display = 'none';
 const x = document.querySelector('.container .starting');
 
-scoreList.innerHTML = '<p>'+scoreRecord[0]+' s</p>'+'<p>'+scoreRecord[1]+' s</p>'+'<p>'+scoreRecord[2]+' s</p>'+'<p>'+scoreRecord[3]+' s</p>'+'<p>'+scoreRecord[4]+' s</p>';
+if(scoreRecord != null) {
+  if(scoreRecord.length == 1) {
+    scoreList.innerHTML = '<p>'+scoreRecord[0];
+  }
+  else if(scoreRecord.length == 2) {
+    scoreList.innerHTML = '<p>'+scoreRecord[0]+' s</p>'+'<p>'+scoreRecord[1]+' s</p>';
+  }
+  else if(scoreRecord.length == 3) {
+    scoreList.innerHTML = '<p>'+scoreRecord[0]+' s</p>'+'<p>'+scoreRecord[1]+' s</p>'+'<p>'+scoreRecord[2]+' s</p>';
+  }
+  else if(scoreRecord.length == 4) {
+    scoreList.innerHTML = '<p>'+scoreRecord[0]+' s</p>'+'<p>'+scoreRecord[1]+' s</p>'+'<p>'+scoreRecord[2]+' s</p>'+'<p>'+scoreRecord[3]+' s</p>';
+  }
+  else {
+    scoreList.innerHTML = '<p>'+scoreRecord[0]+' s</p>'+'<p>'+scoreRecord[1]+' s</p>'+'<p>'+scoreRecord[2]+' s</p>'+'<p>'+scoreRecord[3]+' s</p>'+'<p>'+scoreRecord[4]+' s</p>';
+  }
+}
+else {
+  scoreList.style.display = 'none';
+}
 var uniValue = 1;
 var yourScore = 0;
 //NEWGAME 
