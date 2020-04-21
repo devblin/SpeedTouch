@@ -31,9 +31,7 @@ document.querySelector('#back').onclick = function() {
   document.querySelector(".home").style.display = 'flex';
   document.querySelector('.starting').style.display = 'none';
 }
-var l = 0; //VAR FOR GAME RUN
-var k = 0; //FOR GAME RUN
-var m = 1; //FOR GAME RUN
+
 //SCORE RECORD FOR NORMAL MODE ONLY
 if(scoreRecord != null) {
   scoreList.innerHTML = null;
@@ -44,7 +42,7 @@ if(scoreRecord != null) {
 else {
   scoreList.style.display = 'inherit';
 }
-
+var modeValue = 0;
 //HACKERMODE INPUT ANY NUMBER GAME
 var gridValue = 0;
 document.querySelector('#startbutton0').onclick = function() {
@@ -58,7 +56,6 @@ document.querySelector('#startbutton0').onclick = function() {
   }
 }
 //NORMAL MODE
-var modeValue;
 function normal() {
   modeValue = 20;
   document.querySelector(".home").style.display = 'none';
@@ -80,7 +77,9 @@ function hacker() {
 }
 //SCORE VARIABLES
 var uniValue = 1;
-var yourScore = 0;
+var l = 0; //VAR FOR GAME RUN
+var k = 0; //FOR GAME RUN
+var m = 1; //FOR GAME RUN
 //NEWGAME 
 function newgame() {
   window.location.reload();
