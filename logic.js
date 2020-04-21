@@ -7,7 +7,8 @@ const newTime = document.querySelector('.time');
 const gameTitle = document.querySelector('.score h2');
 const scoreList = document.querySelector('.scorelist');
 var scoreRecord = JSON.parse(localStorage.getItem('score'));
-
+var alertWrong = document.queryCommandValue('.greeting p');
+document.querySelector('.starting').style.display = 'none';
 document.querySelector('.gameover').style.display = 'none';
 newTime.style.visibility = 'hidden';
 bestTime.style.visibility = 'hidden';
@@ -17,26 +18,67 @@ y.style.display = 'none';
 z.style.display = 'none';
 const x = document.querySelector('.container .starting');
 
+//VIEW SCORES
+document.querySelector('#showscore').onclick = function() {
+  document.querySelector('.viewscore').style.display = 'flex';
+}
+document.querySelector('.viewscore').onclick = function() {
+  document.querySelector('.viewscore').style.display = 'none';
+}
+
+//BACK 
+document.querySelector('#back').onclick = function() {
+  document.querySelector(".home").style.display = 'flex';
+  document.querySelector('.starting').style.display = 'none';
+}
+var l = 0; //VAR FOR GAME RUN
+var k = 0; //FOR GAME RUN
+var m = 1; //FOR GAME RUN
+//SCORE RECORD FOR NORMAL MODE ONLY
 if(scoreRecord != null) {
-  if(scoreRecord.length == 1) {
-    scoreList.innerHTML = '<p>'+scoreRecord[0];
-  }
-  else if(scoreRecord.length == 2) {
-    scoreList.innerHTML = '<p>'+scoreRecord[0]+' s</p>'+'<p>'+scoreRecord[1]+' s</p>';
-  }
-  else if(scoreRecord.length == 3) {
-    scoreList.innerHTML = '<p>'+scoreRecord[0]+' s</p>'+'<p>'+scoreRecord[1]+' s</p>'+'<p>'+scoreRecord[2]+' s</p>';
-  }
-  else if(scoreRecord.length == 4) {
-    scoreList.innerHTML = '<p>'+scoreRecord[0]+' s</p>'+'<p>'+scoreRecord[1]+' s</p>'+'<p>'+scoreRecord[2]+' s</p>'+'<p>'+scoreRecord[3]+' s</p>';
-  }
-  else {
-    scoreList.innerHTML = '<p>'+scoreRecord[0]+' s</p>'+'<p>'+scoreRecord[1]+' s</p>'+'<p>'+scoreRecord[2]+' s</p>'+'<p>'+scoreRecord[3]+' s</p>'+'<p>'+scoreRecord[4]+' s</p>';
+  scoreList.innerHTML = null;
+  for(var scoreNum = 0; scoreNum < scoreRecord.length; scoreNum++) {
+    scoreList.innerHTML += '<p>'+ scoreRecord[scoreNum] + ' s</p>';
   }
 }
 else {
   scoreList.style.display = 'inherit';
 }
+
+//HACKERMODE INPUT ANY NUMBER GAME
+var gridValue = 0;
+document.querySelector('#startbutton0').onclick = function() {
+  gridValue = Number(document.querySelector('#gridNumberInput').value);
+  if(gridValue >= 20) {
+    modeValue = gridValue - 20;
+    start();
+  }
+  else {
+    alert('Enter number above or 20');
+  }
+}
+//NORMAL MODE
+var modeValue;
+function normal() {
+  modeValue = 20;
+  document.querySelector(".home").style.display = 'none';
+  document.querySelector('.starting #startingmsg').innerHTML = '"There are 40 numbers" "Tap in ascending order"';
+  document.querySelector('.starting #gridNumberInput').style.display = 'none';
+  document.querySelector('.starting').style.display = 'flex';
+  document.querySelector('#startbutton0').style.display = 'none';
+  document.querySelector('#startbutton').style.display = 'flex';
+}
+ //HACKER MODE
+function hacker() {
+  document.querySelector('#startbutton').style.display = 'none';
+  document.querySelector('.best-time').style.display = 'none';
+  document.querySelector('#startbutton0').style.display = 'flex';
+  document.querySelector('.home').style.display = 'none';
+  document.querySelector('.starting #startingmsg').innerHTML = 'Enter Number Between above or 20';
+  document.querySelector('.starting #gridNumberInput').style.display = 'flex';
+  document.querySelector('.starting').style.display = 'flex';
+}
+//SCORE VARIABLES
 var uniValue = 1;
 var yourScore = 0;
 //NEWGAME 
@@ -75,25 +117,22 @@ function countDown() {
 /////////GAME RUN AFTER THE TIMER STARTS
 function gameRun() {
   let gameValue = document.querySelectorAll('.game0 div'); //z
-
   for(var i = 0; i < gameValue.length ;i++) {
     gameValue[i].addEventListener('click',runIt);
   }
-  var l = 0;
-  var k = 0;
-  var m = 1;
   function runIt(e) {
-    if(Number(e.target.innerHTML) <= m && k <= 19 && Number(e.target.innerHTML) >= (m - 1)) {
+    if(Number(e.target.innerHTML) <= m && k <= (modeValue - 1) && Number(e.target.innerHTML) >= (m - 1)) {
         e.target.innerHTML = Number(e.target.innerHTML) + 20;
         m++ ;
         k++ ;
+        uniValue += 1;
     }
-    else if(k >= 20) {
-      if(Number(e.target.innerHTML) <= m && l <= 19  && Number(e.target.innerHTML) >= (m-1) ) {
-          e.target.style.display = 'none';
-          m++;
-          uniValue+=2;
-          l++;
+    else if(k >= modeValue) {
+      if(Number(e.target.innerHTML) <= m && l <= 19  && Number(e.target.innerHTML) >= (m - 1) ) {
+        e.target.style.display = 'none';
+        m++;
+        uniValue += 1;
+        l++;
       }
       else{
           alert('NOT POSSIBLE');
@@ -114,7 +153,6 @@ function timerStart() {
   var milliseconds = 00;
   var appendMili = document.querySelector('.score .time #millisecond');
   var appendSeconds = document.querySelector('.score .time #second');
-   
   Interval = setInterval(startTimer, 10);
   function startTimer () {
     milliseconds++;
@@ -134,7 +172,7 @@ function timerStart() {
     if (seconds > 9){
       appendSeconds.innerHTML = seconds;
     }
-    if(uniValue === 41){
+    if(uniValue == 41 && modeValue == 20) {
       document.querySelector('.gameover').style.display = 'inherit';    //GAME OVER DISPLAYED
       mostRecentScore = Number(appendSeconds.innerHTML+'.'+appendMili.innerHTML); //ADDED VAR TO READ THE STOPPED TIME
       clearInterval(Interval);
@@ -142,8 +180,14 @@ function timerStart() {
       message.innerHTML = 'Your tapping time is '+ mostRecentScore+' s'; //DISPLAY TAPPING TIME OF PLAYER
       score.push(mostRecentScore);
       score.sort(function(a, b){return a-b});
-      score.splice(10);
+      score.splice(5);
       localStorage.setItem('score',JSON.stringify(score));
+    }
+    if(uniValue == (gridValue + 1) && modeValue != 20) {
+      document.querySelector('.gameover').style.display = 'inherit';
+      mostRecentScore = Number(appendSeconds.innerHTML+'.'+appendMili.innerHTML);
+      clearInterval(Interval);
+      message.innerHTML = 'Your tapping time is '+ mostRecentScore+' s'; //DISPLAY TAPPING TIME OF PLAYER
     }
   }  
 }
