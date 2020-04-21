@@ -42,7 +42,7 @@ if(scoreRecord != null) {
 else {
   scoreList.style.display = 'inherit';
 }
-var modeValue = 0;
+var modeValue = 20;
 //HACKERMODE INPUT ANY NUMBER GAME
 var gridValue = 0;
 document.querySelector('#startbutton0').onclick = function() {
@@ -59,7 +59,7 @@ document.querySelector('#startbutton0').onclick = function() {
 function normal() {
   modeValue = 20;
   document.querySelector(".home").style.display = 'none';
-  document.querySelector('.starting #startingmsg').innerHTML = '"There are 40 numbers" "Tap in ascending order"';
+  document.querySelector('.starting #startingmsg').innerHTML = 'There are 40 numbers Tap in ascending order';
   document.querySelector('.starting #gridNumberInput').style.display = 'none';
   document.querySelector('.starting').style.display = 'flex';
   document.querySelector('#startbutton0').style.display = 'none';
