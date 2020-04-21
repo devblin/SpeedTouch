@@ -1,515 +1,70 @@
-body{
-    margin: 0;
-}
-/* CLOSESCORE */
-#closescore{
-    display: flex; 
-    justify-content: center; 
-    flex-direction: column; 
-    font-size: 15px; 
-    margin-bottom: 15px; 
-    color: blue;
-}
-#scorelistNormal{
-    margin-top: 5px; 
-    font-size: 25px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-}
-#startbutton:hover{
-    cursor: pointer;
-    background-color: orange;
-    color: black;
-}
-#selectmode{
-    font-size: 45px; 
-    margin-bottom: 15px; color: black;
-}
-#startbutton0:hover{
-    cursor: pointer;
-    background-color: black;
-    color: rgb(5, 136, 5);
-}
-/* HOME SECTION */
-#normalmode:hover{
-    background-color: orange;
-    color: white;
-    transition: 0.25s;
-    cursor: pointer;
-}
-#hackermode:hover{
-    background-color: black;
-    color: rgb(5, 136, 5);
-    transition: 0.25s;
-    cursor: pointer;
-}
-.home {
-    display: flex;
-    font-size: 35px;
-    margin-top: 30px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    color: rgba(0, 47, 255, 0.609);
-    font-family: 'VT323', monospace;
-}
-#showscore {
-    color: black;
-    margin-top: 35px;
-    padding: 5px;
-}
-#showscore:hover {
-    color: white;
-    background-color: rgba(0, 47, 255, 0.609);
-    transition: 0.25s;
-    cursor: pointer;
-}
-.viewscore {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: none;
-    position: fixed;
-    z-index: 1;
-    width: 350px;
-    height: 400px;
-    overflow: auto;
-    border: 1px solid rgba(0, 47, 255, 0.609);
-    background-color: white; 
-    margin-top: -50px;
-}
-#gridNumberInput {
-    border: 1px solid rgba(0, 47, 255, 0.609);
-    width: 240px;
-    height: 30px;
-    font-size: 20px;
-    padding: 3px;
-    text-align: center;
-    margin-top: 10px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STYLES -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- JS FILE -->
+    
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <title>SpeedTouch</title>
+</head>
 
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-    border-color: 1px solid black;
-    flex-direction: column;
-}
-.game-square {
-box-sizing: border-box;
-width: 100px;
-height: 100px;
-position: relative;
-overflow: hidden;
-}
+<body>
 
-#game {
-width: 500px;
-height: 400px;
-display: flex;
-justify-content: center;
-flex-direction: row;
-flex-wrap: wrap;
-background-color: rgba(0, 47, 255, 0.609);
-margin-bottom: 30px;
-padding: 30px;
-}
+    <div class="score">
+        <h2>SpeedTouch</h2>
+        <div class="time">
+            <div>Time</div>
+            <p>
+                <span id="second">00</span>:<span id="millisecond">00</span>
+            </p>
+        </div>
+        <div class="best-time">
+            <div>Best Time</div>
+            <p>00:00</p>
+        </div>
+    </div>
 
-.game-square > div {
-width: 100%;
-height: 200%;
-position: absolute;
-top: 0;
-}
-
-.game-square > div > div {
-height: 50%;
-}
-
-.game-square > div > div {
-background-color: orange;
-margin: 1.5px;
-display: flex;
-justify-content: center;
-align-items: center;
-color: black;
-border-radius: 10px;
-font-size: 70px;
-font-family: 'VT323', monospace;
-text-align: center;
-}
-.game-square > div > div:hover{
-    background-color: black;
-    color: orange;
-    border: 1px solid orange;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* SCORE DIVISION */
-.score{
-    background-color: rgba(0, 47, 255, 0.60);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    height: 140px;
-    padding-bottom: 0px;
-    padding-top: 20px;
-    font-family: 'VT323', monospace;
-}
-
-.score > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    margin-left: 72px;
-    margin-right: 72px;
-}
-
-.score > div >p{
-    background-color: white;
-}
-
-.menu{
-    display: flex;
-    background-color: rgba(0, 47, 255, 0.60);
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 70px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    font-family: 'VT323', monospace;
-}
-.menu > .newgame{
-    font-size: 35px;
-    padding: 10px;
-}
-.greeting{
-    background-color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 70px;
-    font-size: 45px;
-    margin-top: 10px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    font-family: 'VT323', monospace;
-}
-.starting {
-    display: none;
-    width: 288px;
-    height: 338px;
-    text-align: center;
-    color: green;
-    line-height: 40px;
-    display: none;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 30px;
-    font-family: 'VT323', monospace;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0px;
-}
-#back{
-    font-size: 30px;
-    color: blue;
-    align-items: center;
-    justify-content: center;
-    margin-top: 100px;
-    padding: 5px;
-}
-#back:hover {
-    color: white;
-    background-color: blue;
-    transition: 0.25s;
-    cursor: pointer;
-}
-/* TOPSCORES */
-.topscores {                             
-    color: hsl(229, 100%, 50%);
-    font-size: 35px;
-    font-family: 'VT323', monospace;
-    padding: 10px;
-    border-bottom: 1px solid black;
-    margin-top: -20px;
-}
-.scorelist > p {
-    display: flex;
-    flex-direction: column;
-    background-color: none;
-    color: black;
-    font-size: 30px;
-    font-family: 'VT323', monospace;
-    width: 200px;
-    text-align: center;
-    height: 50px;
-    margin: unset;
-    justify-content: center;
-    align-items: center;
-}
-#startbutton {
-    background-color: green;
-    color: white;
-    border: none;
-    margin-top: 15px;
-    padding: 10px;
-    font-family: 'VT323', monospace;
-    font-size: 25px;
-}
-#startbutton0{
-    background-color: green;
-    color: white;
-    border: none;
-    margin-top: 15px;
-    padding: 10px;
-    font-family: 'VT323', monospace;
-    font-size: 25px;
-}
-.gameover {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    position: absolute;
-    flex-wrap: wrap;
-    margin-top: -15px;
-    font-size: 60px;
-    font-family: 'VT323', monospace;
-    align-items: center;
-}
-.countdown{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    margin-top: 10px;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 50px;
-    color: black;
-    font-family: 'VT323', monospace;
-    font-size: 300px;
-    z-index: 2;
-}
-.score > h2{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    text-align: center;
-    z-index: 1;
-    font-size: 100px;
-    position: absolute;
-}
-@media screen and (max-width:425px) {
-    .countdown{
-        font-size: 250px;
-    }
-    .score > h2 {
-        margin-top: 20px;
-        font-size: 80px;
-    }
-    .score > div {
-        font-size: 25px;
-        margin-left: 68px;
-        margin-right: 68px;
-    }
-    .home {
-        font-size: 30px;
-        margin-top: 25px;
-    }
-    #selectmode{
-        font-size: 40px;
-        margin-bottom: 10px;
-    }
-    #showscore {
-        margin-top: 30px;
-        padding: 5px;
-    }
-    .scorelist > p {
-        font-size: 25px;
-        width: 200px;
-        height: 50px;
-    }
-    .viewscore {
-        z-index: 1;
-        width: 325px;
-        height: 380px;
-        margin-top: -50px;
-    }
-    .topscores {
-        font-size: 30px;
-        padding: 10px;
-        margin-top: -20px;
-    }
-    #game {
-        width: 350px;
-        height: 286px;
-        font-size: -13px;
-        margin-bottom: 30px;
-        padding: 20px;
-    }
-    .game-square {
-        width: 70px;
-        height: 70px;
-    }
-    .game-square > div > div {
-        margin: 1.5px;
-        border-radius: 10px;
-        font-size: 50px;
-    }
-    .greeting {
-        height: 65px;
-        font-size: 30px;
-        margin-top: 10px;
-        padding-bottom: 0px;
-        padding-top: 0px;
-    }
-    .gameover {
-        margin-top: -20px;
-        font-size: 60px;
-    }
-    .menu > .newgame {
-        font-size: 25px;
-        padding: 10px;
-    }
-}
-
-@media screen and (max-width:375px) {
-    #scorelistNormal{
-        font-size: 20px;
-    }
-    .countdown{
-        font-size: 200px;
-    }
-    #game {
-        padding: 10px;
-        width: 325px;
-        height: 266px;
-    }
-    .scorelist > p {
-        font-size: 25px;
-        width: 200px;
-        height: 45px;
-    }
-    .score{
-        height: 120px;
-    }
-    .game-square {
-        width: 65px;
-        height: 65px;
-    }
-    .score > h2 {
-        font-size: 65px;
-    }
-    .score > div {
-        margin-left: 56px;
-        margin-right: 56px;
-    }
-    .greeting {
-        font-size: 25px;
-        height: 40px;
-    }
-    .viewscore {
-        width: 300px;
-        height: 370px;
-    }
-    .topscores {
-        font-size: 30px;
-    }
-}
-@media screen and (max-width:320px) {
-    #closescore{
-        margin-bottom: 0px;
-        font-size: 5px;
-    }
-    .countdown{
-        font-size: 150px;
-    }
-    .game-square {
-        width: 54px;
-        height: 54px;
-    }
-    .game-square > div > div {
-        font-size: 40px;
-    }
-    .countdown{
-        font-size: 200px;
-    }
-    .starting{
-        height: 318px;
-        line-height: 35px;
-    }
-    #startingmsg{
-        font-size: 25px;
-    }
-    #gridNumberInput{
-        font-size: 17px;
-        width: 200px;
-    }
-    #startbutton0{
-        font-size: 20px;
-    }
-    #back{
-        font-size: 25px;
-    }
-    #startbutton{
-        font-size: 20px;
-    }
-    .greeting {
-        font-size: 23px;
-        height: 35px;
-    }
-    .score {
-        height: 100px;
-    }
-    .score > h2 {
-        font-size: 50px;
-    }
-    .home {
-        font-size: 25px;
-    }
-    .viewscore {
-        width: 260px;
-        height: 330px;
-    }
-    .topscores {
-        font-size: 25px;
-        padding: 5px;
-        margin-top: 0px;
-    }
-    .scorelist > p {
-        font-size: 25px;
-        width: 160px;
-        height: 40px;
-    }
-    .score > div {
-        margin-left: 40px;
-        margin-right: 40px;
-    }
-    #game {
-        width: 275px;
-        height: 227px;
-        padding: 10px;
-    }
-    .menu {
-        height: 55px;
-    }
-    #selectmode{
-        font-size: 30px;
-        margin-bottom: 10px;
-    }
-}
+    <div class="menu">
+        <div onclick="newgame()" class="newgame">
+            New Game
+        </div>
+    </div>
+    <div class="greeting">
+        "Tap as fast as you can"
+    </div>
+    <div class="home">
+        <div id="selectmode">Select Mode</div>
+        <div>
+            <div onclick="normal()" id="normalmode" style="margin-bottom: 5px; padding: 5px;">Normal Mode</div>
+            <div onclick="hacker()" id="hackermode" style="margin-bottom: 5px; margin-top: 10px; padding: 5px;">Hacker Mode</div>
+        </div>
+        <div id="showscore">View High Scores</div>
+    </div>
+    <div class="container">
+        <div class="starting">
+            <div id="startingmsg">Enter Number of Grid</div>
+            <input type="number" name="search" value = '' placeholder="Enter a number" min="20" max="100" id="gridNumberInput">
+            <button id="startbutton" onclick="start()">Start Game</button>
+            <button id="startbutton0">Start</button>
+            <div id="back"><span>&larr;</span> Back</div>
+        </div>
+        <div class="viewscore">
+            <div id="closescore">"Tap inside to close"</div> 
+            <div class="topscores">Top Five Best-Time <span id="scorelistNormal">(Normal Mode)</span></div>
+            <div class="scorelist">
+            <p>No High Scores</p>
+            </div>
+        </div>
+        <div class="gameover">
+            Game Over
+        </div>
+        <div class="countdown"></div>
+        <div id="game"></div>
+    </div>
+    <script src="logic copy.js"></script>
+</body>
+</html>
