@@ -1,6 +1,7 @@
 body{
     margin: 0;
 }
+/* CLOSESCORE */
 #closescore{
     display: flex; 
     justify-content: center; 
@@ -192,7 +193,6 @@ text-align: center;
     font-size: 35px;
     padding: 10px;
 }
-
 .greeting{
     background-color: white;
     display: flex;
@@ -207,14 +207,14 @@ text-align: center;
     padding-top: 0px;
     font-family: 'VT323', monospace;
 }
-
 .starting {
+    display: none;
     width: 288px;
     height: 338px;
     text-align: center;
     color: green;
     line-height: 40px;
-    display: flex;
+    display: none;
     flex-direction: column;
     flex-wrap: wrap;
     margin-bottom: 10px;
@@ -239,7 +239,8 @@ text-align: center;
     transition: 0.25s;
     cursor: pointer;
 }
-.topscores {
+/* TOPSCORES */
+.topscores {                             
     color: hsl(229, 100%, 50%);
     font-size: 35px;
     font-family: 'VT323', monospace;
@@ -247,7 +248,6 @@ text-align: center;
     border-bottom: 1px solid black;
     margin-top: -20px;
 }
-
 .scorelist > p {
     display: flex;
     flex-direction: column;
@@ -261,10 +261,8 @@ text-align: center;
     margin: unset;
     justify-content: center;
     align-items: center;
-    /* border-bottom: 1px solid black; */
 }
-
-.starting > button {
+#startbutton {
     background-color: green;
     color: white;
     border: none;
@@ -273,7 +271,15 @@ text-align: center;
     font-family: 'VT323', monospace;
     font-size: 25px;
 }
-
+#startbutton0{
+    background-color: green;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    padding: 10px;
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+}
 .gameover {
     display: flex;
     justify-content: center;
