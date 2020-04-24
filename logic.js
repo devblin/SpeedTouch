@@ -164,8 +164,6 @@ function user() {
     }
   }
 }
-//HACKERMODE 2
-
 //NORMAL MODE
 function normal() {
   gridSize = 20;
@@ -196,7 +194,6 @@ function redhacker() {
   gridSize = 36;
   numbertoAdd = 36;
   gridValue = 72;
-  document.querySelector('#game').style.height = '500px';
   document.querySelector(".home").style.display = 'none';
   document.querySelector('.best-time').style.display = 'none';
   document.querySelector('.starting #startingmsg').innerHTML = 'There are 72 numbers Tap in ascending order';
@@ -305,7 +302,7 @@ function timerStart() {
       appendMili.innerHTML = milliseconds;
     }
     if (milliseconds > 99) {
-      console.log("second");
+      // console.log("second");
       seconds++;
       appendSeconds.innerHTML = "0" + seconds;
       milliseconds = 0;
@@ -359,11 +356,54 @@ function addElement() {
     newDiv.classList.add('game-square');
     newDiv0.classList.add('game0');
   }
+  //RESPONSIVENESSS FOR 6 X 6 GRID
   if(gridSize == 36) {
-    for(var a = 0; a < 36; a++) {
-      document.querySelectorAll('.game-square')[a].style.width = '83px';
-      document.querySelectorAll('.game-square')[a].style.height = '83px';
+    for(var c = 0; c < 36; c++) {
+    document.querySelectorAll('.game-square')[c].style.width = '83px';
+    document.querySelectorAll('.game-square')[c].style.height = '83px';
     }
+    var smallest = window.matchMedia('(max-width: 320px)');
+    var large = window.matchMedia('(max-width: 425px)');
+    function width320(d) {
+      if(d.matches) {
+        document.querySelector('#game').style.height = '275px';
+        document.querySelector('#game').style.width = '275px';
+        for(var a = 0; a < 36; a++) {
+          document.querySelectorAll('.game-square')[a].style.width = '45px';
+          document.querySelectorAll('.game-square')[a].style.height = '45px';
+        }
+      }
+      else {
+        document.querySelector('#game').style.height = '325px';
+        document.querySelector('#game').style.width = '325px';
+        for(var a = 0; a < 36; a++) {
+          document.querySelectorAll('.game-square')[a].style.width = '54px';
+          document.querySelectorAll('.game-square')[a].style.height = '54px';
+        }
+      }
+    }
+    width320(smallest);
+    smallest.addListener(width320);
+    function width425(w) {
+      if(w.matches) {
+        document.querySelector('#game').style.height = '325px';
+        document.querySelector('#game').style.width = '325px';
+        for(var a = 0; a < 36; a++) {
+          document.querySelectorAll('.game-square')[a].style.width = '54px';
+          document.querySelectorAll('.game-square')[a].style.height = '54px';
+        }
+      }
+      else {
+        document.querySelector('#game').style.height = '500px';
+        document.querySelector('#game').style.width = '500px';
+        for(var a = 0; a < 36; a++) {
+          document.querySelectorAll('.game-square')[a].style.width = '83px';
+          document.querySelectorAll('.game-square')[a].style.height = '83px';
+        }
+      }
+    }
+    width425(large);
+    large.addListener(width425);
   }
   for (var i = y.children.length; i >= 0; i--) {
     y.appendChild(y.children[Math.random()*i|0]);
