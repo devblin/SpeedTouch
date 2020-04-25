@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- STYLES -->
     <link rel="stylesheet" href="styles.css">
-    <!-- JS FILE -->
-    
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>SpeedTouch</title>
 </head>
 
@@ -28,7 +25,6 @@
             <p>00:00</p>
         </div>
     </div>
-
     <div class="menu">
         <div onclick="newgame()" class="newgame">
             New Game
@@ -42,7 +38,8 @@
         <div>
             <div id="normalmode" onclick="user()" >Normal Mode</div>
             <div id="hackermode" onclick="hacker()" >Hacker Mode</div>
-            <div id="hackermode2" onclick="redhacker()">Hacker Mode2</div>
+            <div id="hackermode2" onclick="redhacker()">Hacker ModeII</div>
+            <div id="hackerplus" onclick="hackermode()"><a href="hackermode++.html">Hacker Mode++</a></div>
         </div>
         <div id="showscore">View High Scores</div>
     </div>
@@ -90,6 +87,6 @@
         <div class="countdown"></div>
         <div id="game"></div>
     </div>
-    <script src="logic.js"></script>
+    <script src="logic copy.js"></script>
 </body>
 </html>
