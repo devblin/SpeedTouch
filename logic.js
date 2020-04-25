@@ -164,6 +164,10 @@ function user() {
     }
   }
 }
+//HACKER++
+function hackermode() {
+    window.location.assign("https://devblin.github.io/SpeedTouch/hackermode++.html");
+}
 //NORMAL MODE
 function normal() {
   gridSize = 20;
