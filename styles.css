@@ -207,7 +207,7 @@ body{
     margin-bottom: 5px; 
     padding: 5px;
 }
-#hackerplus > a{
+#hackerplus{
     text-decoration: none;
     color: rgba(0, 47, 255, 0.609);
     padding: 5px;
@@ -216,7 +216,7 @@ body{
     margin-bottom: -20px; 
     margin-top: 8px; 
 }
-#hackerplus > a:hover{
+#hackerplus:hover{
     color: orange;
     text-decoration: none;
     background-color: black;
