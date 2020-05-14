@@ -6,3 +6,15 @@ A Web-Dev task (TASK - 1) given by Delta, to make a counting game to check user'
 3. Hacker-Mode takes input by user to count upto and shows the Time-Score.
 4. Hacker-Mode2 withh 6x6 grid.
 5. Hacker-Mode++ 
+
+<p align="center">
+  <img src="imagest/homeST.jpg">
+</p>
+<br>
+<p align="center">
+  <img src="imagest/normalST.jpg">
+</p>
+<br>
+<p align="center">
+  <img src="imagest/plusST.jpg">
+</p>
