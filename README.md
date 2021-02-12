@@ -7,6 +7,8 @@ A Web-Dev task (TASK - 1) given by Delta, to make a counting game to check user'
 4. Hacker-Mode2 withh 6x6 grid.
 5. Hacker-Mode++ 
 
-![Home](https://github.com/devblin/speed-touch/blob/master/imagest/homeST.jpg)
-![Normal Mode](https://github.com/devblin/speed-touch/blob/master/imagest/normalST.jpg)
-![Hacker Mode](https://github.com/devblin/speed-touch/blob/master/imagest/plusST.jpg)
+<p align="center" style="display: flex; flex-direction:row">
+<img height="430p" src="https://github.com/devblin/speed-touch/blob/master/imagest/homeST.jpg">
+<img height="430px" src="https://github.com/devblin/speed-touch/blob/master/imagest/normalST.jpg">
+<img height="430px" src="https://github.com/devblin/speed-touch/blob/master/imagest/plusST.jpg">
+</p>
