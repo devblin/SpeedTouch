@@ -1,4 +1,4 @@
-# Delta-Task-1
+# Speed Touch
 A Web-Dev task (TASK - 1) given by Delta, to make a counting game to check user's tapping speed for numbers in ascending order.
 
 1. Normal Mode (by default) contains 5×4 Grids with total 40 number to count upto.
